@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-
+import os
 # (W - F *2P)/S + 1
 # l1 (3,6,5) + pool
 # (128 - 5)/1 + 1 = 6x124x124
@@ -25,7 +25,7 @@ class convNet(nn.Module):
         self.l3 = nn.Conv2d(16, 6, 3)
         self.f1 = nn.Linear(6*14*14, 120)
         self.f2 = nn.Linear(120, 84)
-        self.f3 = nn.Linear(84, 1)
+        self.f3 = nn.Linear(84, 2)
 
     def forward(self, x):
         x = self.pool(F.relu(self.l1(x)))
@@ -35,4 +35,4 @@ class convNet(nn.Module):
         x = F.relu(self.f1(x))
         x = F.relu(self.f2(x))
         x = self.f3(x)
-        return torch.sigmoid(x)
+        return x
