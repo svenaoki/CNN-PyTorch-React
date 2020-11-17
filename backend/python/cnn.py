@@ -8,7 +8,7 @@ from torchvision.datasets import ImageFolder
 import matplotlib.pyplot as plt
 from utils import convNet
 
-
+# setting paths and some initial parameter
 TRAIN_DIR = "./dataset/train"
 TEST_DIR = "./dataset/test"
 CLASSES = 'Cat', 'Dog'
@@ -16,11 +16,13 @@ BATCH_SIZE = 6
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+# transformations
 train_transform = transforms.Compose([transforms.ToTensor(), transforms.Resize(
     (128, 128)), transforms.RandomHorizontalFlip(0.5)])
 test_transform = transforms.Compose(
     [transforms.ToTensor(), transforms.Resize((128, 128))])
 
+# loading data
 train_set = ImageFolder(root=TRAIN_DIR, transform=train_transform)
 test_set = ImageFolder(root=TEST_DIR, transform=test_transform)
 
@@ -44,11 +46,12 @@ LEARNING_RATE = 0.01
 PATH_CHECKPOINT = "./checkpoint_dict_model.pt"
 PATH_MODEL = "./state_dict_model.pt"
 
-
+# initialize model, optimizer and loss criterion
 model = convNet().to(device)
 optimizer = torch.optim.Adam(params=model.parameters(), lr=LEARNING_RATE)
 criterion = nn.CrossEntropyLoss()
 
+# training loop
 n_correct = 0
 n_samples = 0
 model.train()
@@ -85,9 +88,10 @@ torch.save({
 # load model for validation set
 model.load_state_dict(torch.load(os.path.join(
     os.getcwd(), 'backend', 'python', 'state_dict_model.pt')))
+
+# test loop
 n_correct = 0
 n_samples = 0
-print(model)
 model.eval()
 with torch.no_grad():
     for i, (features, label) in enumerate(test_loader):
