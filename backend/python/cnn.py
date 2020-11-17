@@ -9,8 +9,9 @@ import matplotlib.pyplot as plt
 from utils import convNet
 
 # setting paths and some initial parameter
-TRAIN_DIR = "./dataset/train"
-TEST_DIR = "./dataset/test"
+PATH = os.path.join(os.getcwd(), 'backend', 'python')
+TRAIN_DIR = os.path.join(PATH, "dataset", "train")
+TEST_DIR = os.path.join(PATH, "dataset", "test")
 CLASSES = 'Cat', 'Dog'
 BATCH_SIZE = 6
 
@@ -43,8 +44,8 @@ for i in range(BATCH_SIZE):
 NUM_EPOCHS = 2
 ITER_PER_EPOCH = math.ceil(len(train_set)/BATCH_SIZE)
 LEARNING_RATE = 0.01
-PATH_CHECKPOINT = "./checkpoint_dict_model.pt"
-PATH_MODEL = "./state_dict_model.pt"
+PATH_CHECKPOINT = os.path.join(PATH, "checkpoint_dict_model.pt")
+PATH_MODEL = os.path.join(PATH, "state_dict_model.pt")
 
 # initialize model, optimizer and loss criterion
 model = convNet().to(device)
@@ -76,7 +77,7 @@ for epoch in range(NUM_EPOCHS):
                 f'Epoch: {epoch+1}/{NUM_EPOCHS}, Iteration: {i+1}/{ITER_PER_EPOCH} Accuracy: {n_correct/n_samples:.4%}')
 
 # save model
-torch.save(model.state_dict(), PATH_MODEL)
+torch.save(model.state_dict(),  PATH_MODEL)
 # save checkpoint
 torch.save({
     'epoch': epoch,

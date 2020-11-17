@@ -5,9 +5,11 @@ import torchvision.transforms as transforms
 from torch.optim import lr_scheduler
 from torchvision.datasets import ImageFolder
 import math
+import os
 
-TRAIN_DIR = "./dataset/train"
-TEST_DIR = "./dataset/test"
+PATH = os.path.join(os.getcwd(), 'backend', 'python')
+TRAIN_DIR = os.path.join(PATH, "dataset", "train")
+TEST_DIR = os.path.join(PATH, "dataset", "test")
 CLASSES = 'Cat', 'Dog'
 BATCH_SIZE = 6
 
@@ -30,8 +32,8 @@ test_loader = DataLoader(
 NUM_EPOCHS = 2
 ITER_PER_EPOCH = math.ceil(len(train_set)/BATCH_SIZE)
 LEARNING_RATE = 0.01
-PATH_CHECKPOINT = "checkpoint_resnet_model.pt"
-PATH_MODEL = "state_resnet_model.pt"
+PATH_CHECKPOINT = os.path.join(PATH, "checkpoint_dict_model.pt")
+PATH_MODEL = os.path.join(PATH, "state_dict_model.pt")
 
 # load resnet model
 model_ft = models.resnet18(pretrained=True)
