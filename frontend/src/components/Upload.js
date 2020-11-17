@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 const Upload = () => {
   const [file, setFile] = useState("");
+  const [pred, setPred] = useState("Make a prediciton");
 
   const handleImageChange = (e) => {
     setFile(e.target.files[0]);
@@ -20,7 +21,7 @@ const Upload = () => {
         },
       })
       .then((res) => {
-        console.log(res.data);
+        setPred(res.data["class_id"]);
       })
       .catch((err) => console.log(err));
   };
@@ -37,6 +38,7 @@ const Upload = () => {
         />
         <input type="submit" />
       </form>
+      <h1>{pred}</h1>
     </div>
   );
 };
