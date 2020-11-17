@@ -5,8 +5,10 @@ from PIL import Image
 import torchvision.transforms as transforms
 from utils import convNet
 import os
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 PATH = os.path.join(os.getcwd(), 'backend', 'python')
 
@@ -47,7 +49,7 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 
-# test
+""" # test
 resp = requests.post("http://localhost:5000",
                      files={"file": open(os.path.join(os.getcwd(), 'dataset', 'test', 'dogs', 'dog.0.jpg'), 'rb')})
-print(resp)
+print(resp.json()) """
