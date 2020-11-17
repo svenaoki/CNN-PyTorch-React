@@ -36,4 +36,4 @@ for i in range(BATCH_SIZE):
     plt.subplot(2, 3, i+1)
     plt.imshow(inputs[i][0])
     plt.title(CLASSES[label[i]])
-plt.show()
+# plt.show()
