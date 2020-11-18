@@ -32,9 +32,12 @@ In the backend folder are the python scripts containing two CNNs, one from scrat
 In the frontend folder is the react js application which allows us to upload picture and run the CNN as per the pictures below.
 
 Click on "Choose file" and upload your cats or dog image
+
 <img src = "/docs/FrontEndtool.png">
 
-Click on "Run CNN" to make a prediciton (I am afraid the model isn't sure about the chihuahua :-)... or I may not have train it)
+Click on "Run CNN" to request probabilitieson whether it is a dog or a cat 
+(I am afraid the model isn't sure about the chihuahua :-)... or I may not have trained it)
+
 <img src = "/docs/FrontEndtool2.png">
 
 
