@@ -28,16 +28,6 @@ def transform_image(image):
     return my_transforms(image).unsqueeze(0)
 
 
-""" def get_prediction(image):
-    model = load_model()
-    model.eval()
-    tensor = transform_image(image=image)
-    outputs = model(tensor)
-    _, y_hat = outputs.max(1)
-    predicted_idx = str(y_hat.item())
-    return predicted_idx """
-
-
 def get_prediction(image):
     model = load_model()
     model.eval()
@@ -54,13 +44,13 @@ def predict():
         image = request.files['file']
         probs = get_prediction(image=image)
         return jsonify(probs)
-        # return jsonify({'class_id': class_id})
 
 
 if __name__ == "__main__":
     app.run(debug=True)
-
+""" 
  # test
 resp = requests.post("http://localhost:5000",
                      files={"file": open(os.path.join(os.getcwd(), 'dataset', 'test', 'dogs', 'dog.0.jpg'), 'rb')})
 print(resp.json())
+ """
