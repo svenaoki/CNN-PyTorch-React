@@ -13,12 +13,12 @@
     ├── package.json
     ├── package-lock.json
     ├── src/
-    │   ├── components/
-    │   │   ├── Upload.js
-    │   │   ├── Upload.css
     │   ├── App.css
     │   ├── App.js
-    │   └── index.js
+    │   ├── index.js
+    │   ├── components/
+    │       ├── Upload.js
+    │       ├── Upload.css
     └── public/
         ├── content.md
         ├── meta.json
