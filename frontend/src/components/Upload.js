@@ -34,7 +34,7 @@ const Upload = () => {
         },
       })
       .then((res) => {
-        setPred(res.data["class_id"] === 1 ? "Dog" : "Cat");
+        setPred(res.data["class_id"] === "0" ? "Dog" : "Cat");
         setLoading(false);
       })
       .catch((err) => console.log(err));
