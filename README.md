@@ -31,13 +31,14 @@
 In the backend folder are the python scripts containing two CNNs, one from scratch one from transfer learning, and app.py where the flask application creates and API endpoint to the model.
 In the frontend folder is the react js application which allows us to upload picture and run the CNN as per the pictures below.
 
-Click on "Choose file" and upload your cats or dog image
+Click on "Choose file" and upload your cat or dog image
 
 <img src = "/docs/FrontEndtool.png">
 
-Click on "Run CNN" to request probabilitieson whether it is a dog or a cat 
-(I am afraid the model isn't sure about the chihuahua :-)... or I may not have trained it)
+Click on "Run CNN" to request probabilities on whether it is a dog or a cat 
+(This prediction was created when the model wasn't trained, but neverthelesss I found it amusing and left it)
 
 <img src = "/docs/FrontEndtool2.png">
+
 
 
