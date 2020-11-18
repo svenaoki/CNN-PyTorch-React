@@ -9,5 +9,5 @@ In the frontend folder is the react js application which allows us to upload pic
 Click on "Choose file" and upload your cats or dog image
 <img src = "/docs/FrontEndtool.png">
 
-Click on "Run CNN" to make a prediciton
+Click on "Run CNN" to make a prediciton (will change to display probabilties, too)
 <img src = "/docs/FrontEndtool2.png">
