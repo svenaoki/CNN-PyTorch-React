@@ -18,7 +18,7 @@
     │   ├── index.js
     │   ├── components/
     │       ├── Upload.js
-    │       ├── Upload.css
+    │       └── Upload.css
     └── public/
         ├── content.md
         ├── meta.json
