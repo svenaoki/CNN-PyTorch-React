@@ -70,7 +70,8 @@ for epoch in range(NUM_EPOCHS):
         optimizer.step()
 
         sm = nn.Softmax()
-        _, prediction_cls = torch.max(sm(predictions), 1)
+        prediction_cls = sm(predictions)
+        _, prediction_cls = torch.max(prediction_cls, 1)
         n_correct += torch.sum(prediction_cls == label.data)
         n_samples += label.shape[0]
         if i % 20 == 0:
