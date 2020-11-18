@@ -43,7 +43,7 @@ for i in range(BATCH_SIZE):
 # hyperparamters
 NUM_EPOCHS = 2
 ITER_PER_EPOCH = math.ceil(len(train_set)/BATCH_SIZE)
-LEARNING_RATE = 0.01
+LEARNING_RATE = 0.001
 PATH_CHECKPOINT = os.path.join(PATH, "checkpoint_dict_model.pt")
 PATH_MODEL = os.path.join(PATH, "state_dict_model.pt")
 
@@ -58,8 +58,8 @@ n_samples = 0
 model.train()
 for epoch in range(NUM_EPOCHS):
     for i, (features, label) in enumerate(train_loader):
-        features, label = features.to(
-            device), label.to(device)
+        features = features.to(device)
+        label = label.to(device)
         predictions = model(features)
 
         loss = criterion(predictions.to(torch.float32),
@@ -69,10 +69,11 @@ for epoch in range(NUM_EPOCHS):
         loss.backward()
         optimizer.step()
 
-        _, prediction_cls = torch.max(predictions, 1)
+        sm = nn.Softmax()
+        _, prediction_cls = torch.max(sm(predictions), 1)
         n_correct += torch.sum(prediction_cls == label.data)
         n_samples += label.shape[0]
-        if i % 300 == 0:
+        if i % 20 == 0:
             print(
                 f'Epoch: {epoch+1}/{NUM_EPOCHS}, Iteration: {i+1}/{ITER_PER_EPOCH} Accuracy: {n_correct/n_samples:.4%}')
 
