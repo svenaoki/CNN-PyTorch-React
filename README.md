@@ -3,4 +3,4 @@
 some changes
 more chanes
 
-<img src = "FrontEndTool"> alt="My cool logo"/>
+<img src = "FrontEndTool.png"> alt="Frontend Tool"/>
