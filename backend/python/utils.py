@@ -1,7 +1,6 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import os
 # (W - F *2P)/S + 1
 # l1 (3,6,5) + pool
 # (128 - 5)/1 + 1 = 6x124x124
