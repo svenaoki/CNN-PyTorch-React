@@ -4,7 +4,8 @@ import "./Upload.css";
 
 const Upload = () => {
   const [file, setFile] = useState("");
-  const [pred, setPred] = useState("Make a prediction");
+  const [predDog, setPredDog] = useState("");
+  const [predCat, setPredCat] = useState("");
   const [img, setImg] = useState(
     "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
   );
@@ -34,7 +35,8 @@ const Upload = () => {
         },
       })
       .then((res) => {
-        setPred(res.data["class_id"] === "0" ? "Dog" : "Cat");
+        setPredDog(res.data[0]);
+        setPredCat(res.data[1]);
         setLoading(false);
       })
       .catch((err) => console.log(err));
@@ -46,12 +48,19 @@ const Upload = () => {
     </div>
   );
 
+  const results = (
+    <div>
+      <p>P(dog|data): {predDog * 100}% </p>
+      <p>P(cat|data): {predCat * 100}% </p>
+    </div>
+  );
+
   return (
     <div className="container">
       <img src={img} className="figure-img img-fluid rounded" />
-      <br />
-      <h3>{loading ? loadingSpinner : pred}</h3>
-      <br />
+
+      <h4>{loading ? loadingSpinner : results}</h4>
+
       <form onSubmit={handleSubmit}>
         <input
           type="file"

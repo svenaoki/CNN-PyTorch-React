@@ -5,6 +5,7 @@ import requests
 from PIL import Image
 import torchvision.transforms as transforms
 from utils import convNet
+import numpy as np
 import os
 from flask_cors import CORS
 
@@ -35,7 +36,7 @@ def get_prediction(image):
     outputs = model(tensor)
     sm = nn.Softmax()
     predictions = sm(outputs).detach().numpy()
-    return predictions[0].tolist()
+    return np.around(predictions[0], decimals=4).tolist()
 
 
 @app.route('/', methods=['POST'])
