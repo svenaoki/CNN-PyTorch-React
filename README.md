@@ -16,7 +16,7 @@
     │   ├── App.css
     │   ├── App.js
     │   ├── index.js
-    │   ├── components/
+    │   └── components/
     │       ├── Upload.js
     │       └── Upload.css
     └── public/
