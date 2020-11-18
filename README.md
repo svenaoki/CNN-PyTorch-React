@@ -1,8 +1,6 @@
 # Predicting Cats and Dogs using convolutional neural networks
 
-## What this repo is about:
-ocumentation folder has 3 level tree-like structure, inspired by ZenDesk documentation structure:
-
+## What this repo is about?
 ```
 ├── backend/
 │   ├── app.py
