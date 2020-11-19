@@ -2,8 +2,8 @@
 
 ## What this repo is about?
 This repo originated from the objective to create a CNN using PyTorch and hosting it on Flask.
-I would hate the idea of creating a frontend in Flask and some akward HTML, so I connect the model with ReactJS.
-People who would like to use the repo should therefore know a little bit of Javascript.
+But I would hate the idea of creating a frontend in Flask as well plus some akward HTML. Therefore I link the model with a ReactJS application.
+People who would like to use the repo should therefore know a little bit of Javascript, but I can ensure you while it is a bit of a steep learning curve it becomes much more intuitiv after a while.
 Since this is just a fun project, I do not intend to spend much time on it - maybe a couple of evening so roughly 5-6 hours.
 
 
@@ -31,8 +31,8 @@ Since this is just a fun project, I do not intend to spend much time on it - may
         └── manifest.json
 ```
 
-In the backend folder are the python scripts containing two CNNs, one from scratch one from transfer learning, and app.py where the flask application creates and API endpoint to the model.
-In the frontend folder is the react js application which allows us to upload picture and run the CNN as per the pictures below.
+In the backend folder are the python scripts containing two CNNs. One built from scratch, one built from transfer learning using ResNet. The weights are calculated on google colab. The Flask application is found in /backend/app.py where the flask application creates an API endpoint for predictions.
+In the frontend folder is the ReactJS application which allows us to upload picture and run the CNN.
 
 Click on "Choose file" and upload your cat or dog image
 
