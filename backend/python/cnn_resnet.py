@@ -4,6 +4,7 @@ from torchvision import models
 import torchvision.transforms as transforms
 from torch.optim import lr_scheduler
 from torchvision.datasets import ImageFolder
+from torch.utils.data import DataLoader
 import math
 import os
 
@@ -36,9 +37,9 @@ PATH_CHECKPOINT = os.path.join(PATH, "checkpoint_dict_model.pt")
 PATH_MODEL = os.path.join(PATH, "state_dict_model.pt")
 
 # load resnet model
-model_ft = models.resnet18(pretrained=True)
-num_ftrs = model_ft.fc.in_features
-model_ft.fc = nn.Linear(num_ftrs, 2)
+model = models.resnet18(pretrained=True)
+num_ftrs = model.fc.in_features
+model.fc = nn.Linear(num_ftrs, 2)
 
 optimizer = torch.optim.SGD(
     params=model.parameters(), lr=LEARNING_RATE, momemtum=0.9)
