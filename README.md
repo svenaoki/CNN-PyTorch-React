@@ -1,6 +1,12 @@
 # Predicting Cats and Dogs using convolutional neural networks
 
 ## What this repo is about?
+This repo originated from the objective to create a CNN using PyTorch and hosting it on Flask.
+I would hate the idea of creating a frontend in Flask and some akward HTML, so I connect the model with ReactJS.
+People who would like to use the repo should therefore know a little bit of Javascript.
+Since this is just a fun project, I do not intend to spend much time on it - maybe a couple of evening so roughly 5-6 hours.
+
+
 ```
 ├── backend/
 │   ├── app.py
@@ -36,6 +42,11 @@ Click on "Run CNN" to request probabilities on whether it is a dog or a cat
 (This prediction was created when the model wasn't trained, but neverthelesss I found it amusing and left it)
 
 <img src = "/docs/FrontEndtool2.png">
+
+## Takeaways
+PyTorch has a steeper learning curve than for example Keras but it becomes more intuitiv after a while. Additonally, with PyTorch Lightning being launched users will get a similar experience as compared to Keras. If you therefore compare PyTorch with Tensorflow, PyTorch is winning in my opinion. It is just more pythonic.
+Furthermore, debugging is a delight especially when you create your own neural network from scratch.
+If there is one minus point, it is that PyTorch is rigorous about the data type (float, int, long...) but so is Tensorflow.
 
 
 
