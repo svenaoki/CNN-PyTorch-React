@@ -13,7 +13,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-PATH = os.path.join(os.getcwd(), 'backend', 'python')
+PATH = os.path.join(os.getcwd(), 'backend')
 
 
 def load_model():
@@ -40,7 +40,7 @@ def get_prediction(image):
     outputs = model(tensor)
     sm = nn.Softmax()
     predictions = sm(outputs).detach().numpy()
-    return np.around(predictions[0], decimals=4).tolist()
+    return np.around(predictions[0]*100).tolist()
 
 
 @app.route('/', methods=['POST'])

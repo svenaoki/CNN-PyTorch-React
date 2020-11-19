@@ -11,7 +11,7 @@ from torch.utils.tensorboard import SummaryWriter
 
 # setting paths and some initial parameter
 writer = SummaryWriter('runs/fashion_mnist_experiment_1')
-PATH = os.path.join(os.getcwd(), 'backend', 'python')
+PATH = os.path.join(os.getcwd(), 'backend')
 TRAIN_DIR = os.path.join(PATH, "dataset", "train")
 TEST_DIR = os.path.join(PATH, "dataset", "test")
 CLASSES = 'Cat', 'Dog'
@@ -92,7 +92,7 @@ torch.save({
 
 # load model for validation set
 model.load_state_dict(torch.load(os.path.join(
-    os.getcwd(), 'backend', 'python', 'state_dict_model.pt')))
+    os.getcwd(), 'backend', 'state_dict_model.pt')))
 
 # test loop
 n_correct = 0

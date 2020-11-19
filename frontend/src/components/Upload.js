@@ -60,8 +60,8 @@ const Upload = () => {
 
   const results = (
     <div>
-      <p>P(dog|data): {predDog * 100}% </p>
-      <p>P(cat|data): {predCat * 100}% </p>
+      <p>P(dog|data): {predDog }% </p>
+      <p>P(cat|data): {predCat }% </p>
     </div>
   );
 
