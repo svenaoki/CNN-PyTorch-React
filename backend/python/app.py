@@ -3,6 +3,7 @@ import torch
 import torch.nn as nn
 import requests
 from PIL import Image
+from torchvision import models
 import torchvision.transforms as transforms
 from utils import convNet
 import numpy as np
@@ -16,9 +17,12 @@ PATH = os.path.join(os.getcwd(), 'backend', 'python')
 
 
 def load_model():
-    model = convNet()
+    model = models.resnet18(pretrained=True)
+    num_ftrs = model.fc.in_features
+    model_ft.fc = nn.Linear(num_ftrs, 2)
+
     model.load_state_dict(torch.load(os.path.join(
-        PATH, 'state_dict_model.pt')))
+        PATH, 'state_dict_model.pt'), map_location=torch.device('cpu')))
     return model
 
 

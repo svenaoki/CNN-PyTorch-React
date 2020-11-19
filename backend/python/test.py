@@ -7,10 +7,9 @@ from torch.utils.data import DataLoader
 from torchvision.datasets import ImageFolder
 import matplotlib.pyplot as plt
 from utils import convNet
-from torch.utils.tensorboard import SummaryWriter
+
 
 # setting paths and some initial parameter
-writer = SummaryWriter('runs/fashion_mnist_experiment_1')
 PATH = os.path.join(os.getcwd(), 'backend', 'python')
 TRAIN_DIR = os.path.join(PATH, "dataset", "train")
 TEST_DIR = os.path.join(PATH, "dataset", "test")
@@ -34,16 +33,16 @@ train_loader = DataLoader(
 test_loader = DataLoader(
     dataset=test_set, batch_size=BATCH_SIZE, shuffle=False)
 
+
 train_iter = iter(train_loader)
 inputs, label = train_iter.next()
 for i in range(BATCH_SIZE):
     plt.subplot(2, 3, i+1)
     plt.imshow(inputs[i][0])
     plt.title(label[i])
-# plt.show()
 
 # hyperparamters
-NUM_EPOCHS = 2
+NUM_EPOCHS = 10
 ITER_PER_EPOCH = math.ceil(len(train_set)/BATCH_SIZE)
 LEARNING_RATE = 0.01
 PATH_CHECKPOINT = os.path.join(PATH, "checkpoint_dict_model.pt")
@@ -51,6 +50,10 @@ PATH_MODEL = os.path.join(PATH, "state_dict_model.pt")
 
 # initialize model, optimizer and loss criterion
 model = convNet().to(device)
+# load model for validation set
+model.load_state_dict(torch.load(os.path.join(
+    os.getcwd(), 'backend', 'python', 'state_dict_model.pt')))
+
 optimizer = torch.optim.SGD(params=model.parameters(), lr=LEARNING_RATE)
 criterion = nn.CrossEntropyLoss()
 
@@ -85,14 +88,10 @@ torch.save(model.state_dict(),  PATH_MODEL)
 # save checkpoint
 torch.save({
     'epoch': epoch,
-    'model_state_dict_': model.state_dict(),
+    'model_state_dict': model.state_dict(),
     'optimizer_state_dict': optimizer.state_dict(),
     'loss': loss
 }, PATH_CHECKPOINT)
-
-# load model for validation set
-model.load_state_dict(torch.load(os.path.join(
-    os.getcwd(), 'backend', 'python', 'state_dict_model.pt')))
 
 # test loop
 n_correct = 0
