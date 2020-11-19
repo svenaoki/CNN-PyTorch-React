@@ -2,7 +2,7 @@
 
 ## What this repo is about?
 This repo originated from the objective to create a CNN using PyTorch and hosting it on Flask.
-But I would not like the idea of creating the front with Flask and HTML only. Therefore I link the model to a ReactJS app.
+As I would not like the idea of creating the frontend with Flask as well and HTML only, I linked the model to a ReactJS app.
 People who would like to use the repo should therefore know a little bit of Javascript.
 
 Since this is just a fun project, I do not intend to spend much time on it - maybe a couple of evening so roughly 5-6 hours.
