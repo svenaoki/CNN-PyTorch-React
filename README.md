@@ -20,12 +20,9 @@
     │       ├── Upload.js
     │       └── Upload.css
     └── public/
-        ├── content.md
-        ├── meta.json
-        ├── image.png
-        ├── image.jpg
-        ├── image.jpeg
-        └── document.pdf
+        ├── index.html
+        ├── ...
+        └── manifest.json
 ```
 
 In the backend folder are the python scripts containing two CNNs, one from scratch one from transfer learning, and app.py where the flask application creates and API endpoint to the model.
