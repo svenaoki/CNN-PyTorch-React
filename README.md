@@ -45,10 +45,5 @@ Click on "Run CNN" to request probabilities on whether it is a dog or a cat
 
 <img src = "/docs/FrontEndtool2.png">
 
-## Takeaways
-PyTorch has a steeper learning curve than for example Keras but it becomes more intuitiv after a while. Additonally, with PyTorch Lightning being launched users will get a similar experience as compared to Keras. If you therefore compare PyTorch with Tensorflow, PyTorch is winning in my opinion. It is just more pythonic.
-Furthermore, debugging is a delight especially when you create your own neural network from scratch.
-If there is one minus point, it is that PyTorch is rigorous about the data type (float, int, long...) but so is Tensorflow.
-
 
 
